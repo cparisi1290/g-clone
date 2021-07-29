@@ -59,7 +59,14 @@ function SearchPage() {
                 <Link to="/more">more</Link>
               </div>
             </div>
-            <div className="searchPage-optionsRight"></div>
+            <div className="searchPage-optionsRight">
+              <div className="searchPage-option">
+                <Link to="/settings">Settings</Link>
+              </div>
+              <div className="searchPage-option">
+                <Link to="/tools">Tools</Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
