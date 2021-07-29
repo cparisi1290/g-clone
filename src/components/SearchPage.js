@@ -70,7 +70,16 @@ function SearchPage() {
           </div>
         </div>
       </div>
-      <div className="searchPage-results"></div>
+
+      {true && (
+        <div className="searchPage-results">
+          <p className="searchPage-resultCount">
+            About {data?.searchInformation.formattedTotalResults} results (
+            {data?.searchInformation.formattedSearchTime}
+            seconds) for Tesla
+          </p>
+        </div>
+      )}
     </div>
   );
 }
