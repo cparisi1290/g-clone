@@ -13,7 +13,7 @@ import RoomIcon from "@material-ui/icons/Room";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 function SearchPage() {
-  const [{ term }, dispatch] = useStateValue();
+  const [{ term = "tesla" }, dispatch] = useStateValue();
 
   // LIVE API CALL
   // const { data } = useGoogleSearch(term);
@@ -76,8 +76,18 @@ function SearchPage() {
           <p className="searchPage-resultCount">
             About {data?.searchInformation.formattedTotalResults} results (
             {data?.searchInformation.formattedSearchTime}
-            seconds) for Tesla
+            seconds) for {term}
           </p>
+
+          {data?.items.map((item) => (
+            <div className="searchPage-result">
+              <a href={item.link}>{item.displayLink}</a>
+              <a className="searchPage-resultTitle" href={item.link}>
+                <h2>{item.title}</h2>
+              </a>
+              <p className="searchPage-resultSnippet">{item.snippet}</p>
+            </div>
+          ))}
         </div>
       )}
     </div>
