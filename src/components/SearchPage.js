@@ -2,7 +2,7 @@ import React from "react";
 import "./SearchPage.css";
 import { useStateValue } from "../StateProvider";
 import useGoogleSearch from "../useGoogleSearch";
-import Response from "../response";
+// import Response from "../response";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import SearchIcon from "@material-ui/icons/Search";
@@ -13,12 +13,13 @@ import RoomIcon from "@material-ui/icons/Room";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 function SearchPage() {
-  const [{ term = "tesla" }, dispatch] = useStateValue();
+  const [{ term }, dispatch] = useStateValue();
 
-  // LIVE API CALL
-  // const { data } = useGoogleSearch(term);
+  //   LIVE API CALL
+  const { data } = useGoogleSearch(term);
 
-  const data = Response;
+  //   MOCK DATA
+  //   const data = Response;
 
   console.log(data);
   return (
@@ -26,11 +27,12 @@ function SearchPage() {
       <div className="searchPage-header">
         <Link to="/">
           <img
+            className="searchPage-logo"
             src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
             alt=""
           />
         </Link>
-        <div className="search-headerBody">
+        <div className="searchPage-headerBody">
           <Search hideButtons />
           <div className="searchPage-options">
             <div className="searchPage-optionsLeft">
